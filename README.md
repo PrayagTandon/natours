@@ -1,4 +1,4 @@
-# Natours-Project [Live-site][https://natours-prayag.netlify.app/]
+# Natours-Project [Live-site](https://natours-prayag.netlify.app/)
 
 ## Description: 
 - Natours is a travel website where you can book your next adventures.
