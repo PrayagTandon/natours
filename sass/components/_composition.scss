@@ -1,0 +1,96 @@
+@use "../abstracts/" as *;
+
+.composition {
+
+    &__photo {
+        width: 55%;
+        position: absolute;
+        border: none;
+        border-radius: 2px;
+        box-shadow: $box-shadow-hover;
+        z-index: 10;
+        outline-offset: 2rem;
+        transition: $transition-small;
+
+        @include respond-to('md-2') {
+            display: inline-block;
+            height: auto;
+            width: calc(120% / 3);
+            outline-offset: 1.2rem;
+        }
+
+        @include respond-to('md-1') {
+            width: calc(150% / 3);
+            outline-offset: .8rem;
+        }
+
+        &:hover {
+            box-shadow: $box-shadow-large;
+            transform: scale(1.1) translateY(-.5rem);
+            outline: 1.5rem solid $color-green;
+            border-radius: 2rem;
+            z-index: 20;
+            cursor: pointer;
+
+            @include respond-to('md-2') {
+                outline: 1rem solid $color-green;
+            }
+
+            @include respond-to('md-1') {
+                outline: 1rem solid $color-green;
+            }
+        }
+
+        &--1 {
+            top: -2rem;
+            left: 0;
+
+            @include respond-to('md-2') {
+                left: 15%;
+                top: -1rem;
+            }
+
+            @include respond-to('md-1') {
+                left: 10%;
+                top: -2rem;
+            }
+        }
+
+        &--2 {
+            top: 2rem;
+            right: 0;
+
+            @include respond-to('md-2') {
+                right: 8%;
+            }
+
+            @include respond-to('md-1') {
+                right: 5%;
+            }
+        }
+
+        &--3 {
+            top: 10rem;
+            left: 20%;
+
+            @include respond-to('md-2') {
+                top: 15rem;
+                left: 30%;
+            }
+
+            @include respond-to('md-1') {
+                top: 11rem;
+                left: 22%;
+            }
+
+            @include respond-to('sm-1') {
+                top: 8rem;
+                left: 22%;
+            }
+        }
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.9);
+    }
+}

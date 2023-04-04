@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+
+.tours {
+
+    &__grid {
+        @include grid-container(6rem , 0rem , center , center);
+        grid-template-columns: repeat(3 , 1fr);
+        margin-bottom: 8rem;
+
+        @include respond-to('lg') {
+            column-gap: 3rem;
+            margin-inline: 1rem;
+        }
+
+        @include respond-to('md-2') {
+            grid-template-columns: 1fr;
+            row-gap: 8rem;
+        }
+
+        &-card {
+            width: 100%;
+
+            @include respond-to('md-2') {
+                width: 50%;
+            }
+
+            @include respond-to('md-1') {
+                width: 80%;
+            }
+        }
+    }
+}

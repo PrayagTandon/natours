@@ -1,0 +1,85 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.section__about {
+    padding: 25rem 0;
+    background-color: $background-grey-light;
+    margin-top: -20vh;
+
+    @include respond-to('lg') {
+        padding-top: 30rem;
+    }
+
+    @include respond-to('md-2') {
+        padding-top: 15rem ;
+    }
+
+    @include respond-to('sm-2') {
+        padding-bottom: 12rem;
+    }
+}
+
+.section__features {
+    padding: 25rem 2rem;
+    background-image: linear-gradient(to right bottom , rgba($color-primary-light , .8) , rgba($color-primary-dark , .8)) , url(../img/nat-4.jpg);
+    background-size: cover;
+    background-position: center;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    & > * {
+        transform: skewY(7deg);
+    }
+
+    @include respond-to('md-2') {
+        padding: 15rem 2rem;
+    }
+
+    @include respond-to('sm-2') {
+        padding: 8rem 2rem;
+    }
+}
+
+.section__tours {
+    padding: 25rem 0 15rem 0;
+    background-color: $background-grey-light;
+    margin-top: -10rem;
+
+    @include respond-to('md-2') {
+        padding: 20rem 0 10rem 0;
+    }
+
+    @include respond-to('md-1') {
+        padding: 15rem 0 10rem 0;
+    }
+
+    @include respond-to('sm-1') {
+        padding: 18rem 0 10rem 0;
+    }
+}
+
+.section__stories {
+    position: relative;
+    padding: 15rem 0;
+
+    @include respond-to('md-1') {
+        padding: 6rem 0;
+    }
+
+    @include respond-to('sm-1') {
+        padding: 4rem 0;
+    }
+}
+
+.section__cta {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom , $color-primary-light , $color-primary-dark);
+
+    @include respond-to('md-2') {
+        padding: 8rem 0;
+    }
+
+    @include respond-to('md-1') {
+        padding: 5rem 0;
+    }
+}

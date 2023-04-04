@@ -1,0 +1,38 @@
+@use "../abstracts/" as *;
+
+.about__box {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    column-gap: 4.8rem;
+
+    @include respond-to('lg') {
+        column-gap: 2.4rem;
+    }
+
+    @include respond-to('md-2') {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 6.4rem;
+    }
+
+    @include respond-to('md-1') {
+        padding-block: 0;
+    }
+
+    @include respond-to('sm-1') {
+        row-gap: 8rem;
+    }
+
+    &--img {
+        position: relative;
+
+        @include respond-to('lg') {
+            margin-top: 3rem;
+        }
+
+        @include respond-to('md-2') {
+            margin-top: 0rem;
+        }
+    }
+}

@@ -1,0 +1,115 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.story{
+
+    &__container {
+       margin-bottom: 8rem;
+    }
+
+    & {
+        width: 75%;
+        padding: 6rem 6rem 6rem 9rem;
+        margin: 0 auto;
+        background-color: rgba($color-white , .6);
+        font-size: $default-font-size;
+        box-shadow: $box-shadow-hover;
+        transform: skewX(-12deg);
+
+        @include respond-to('lg') {
+            width: 85%;
+        }
+
+        @include respond-to('md-2') {
+            width: 85%;
+            padding: 4rem;
+            padding-inline: 6rem;
+        }
+
+        @include respond-to('md-1') {
+            width: 92%;
+            padding: 2rem;
+            padding-inline: 2rem;
+            transform: skewX(-6deg);
+
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            column-gap: 2.4rem;
+        }
+
+        @include respond-to('sm-1') {
+            transform: skewX(0deg);
+        }
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50%);
+        position: relative;
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+
+        @include respond-to('md-1') {
+            width: 8rem;
+            height: 8rem;
+            transform: translateX(0rem) skewX(6deg);
+        }
+
+        @include respond-to('sm-1') {
+            transform: translateX(0rem) skewX(0deg);
+        }
+    }
+
+    &__img {
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transition: $transition-medium;
+        transform: translateX(-4rem)scale(1.4);
+        }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% ,100%);
+        font-size: 1.7rem;
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0;
+        transition: $transition-medium;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+
+        @include respond-to('md-1') {
+            transform: skewX(6deg);
+        }
+
+        @include respond-to('sm-1') {
+            transform: skewX(0deg);
+        }
+
+        h3 {
+            @include respond-to('md-2') {
+                margin-bottom: 0rem;
+            }
+        }
+    }
+
+    &:hover &__caption {
+        transform: translate(-50% , -50%);
+        opacity: 1;
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem)scale(1);
+        filter: blur(5px) brightness(80%);
+    }
+}

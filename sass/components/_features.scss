@@ -1,0 +1,39 @@
+@use "../abstracts/" as *;
+
+.features__container {
+    @include grid-container(3rem , 4rem , center , stretch);
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+
+    @include respond-to('lg') {
+        grid-template-columns: repeat(auto-fit , minmax(25rem , 1fr));
+    }
+}
+
+.feature-box {
+    background-color: rgba($color-white , .8);
+    @include flex-container(column , center , center , 0rem , 0rem);
+    padding: 2.5rem;
+    font-size: $default-font-size;
+    border-radius: 3px;
+    box-shadow: $box-shadow-light;
+    transition: $transition-small;
+
+    &:hover {
+        transform: translateY(-1rem) scale(1.05);
+        box-shadow: $box-shadow-hover;
+        cursor: pointer;
+    }
+
+    &__icon {
+        font-size: 6rem;
+        display: inline-block;
+        background-image: linear-gradient(to right , rgba($color-primary-light , .8) , rgba($color-primary-dark , .8));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    &__container {
+        @include flex-container(column , center , center , 0rem , 0rem);
+    }
+}

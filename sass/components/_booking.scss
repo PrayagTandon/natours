@@ -1,0 +1,190 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.booking {
+    background-image: linear-gradient(105deg , 
+                                      rgba($color-white , .9) 55% , transparent 55%) , 
+                                      url(../img/nat-10.jpg);
+    background-size: cover;
+    border-radius: $border-radius-small;
+    box-shadow: $box-shadow-large;
+    // height: 52rem;
+
+    @include respond-to('md-2') {
+        background-image: linear-gradient(105deg,
+                    rgba($color-white , .9) 65%, transparent 65%),
+                url(../img/nat-10.jpg);
+    }
+
+    @include respond-to('md-1') {
+        max-width: 85%;
+        background-image: linear-gradient(90deg,
+                    rgba($color-white , .75) 100%, transparent 100%),
+                url(../img/nat-10.jpg);
+    }
+
+    @include respond-to('sm-1') {
+        max-width: 90%;
+        background-image: linear-gradient(90deg,
+                    rgba($color-white , .75) 100%, transparent 100%),
+                url(../img/nat-10.jpg);
+    }
+}
+
+.booking-form {
+    width: 50%;
+    padding: 6rem;
+
+    @include respond-to('lg') {
+        width: 54%;
+        padding: 3rem;
+    }
+
+    @include respond-to('md-2') {
+        width: 65%;
+        padding: 3rem;
+    }
+
+    @include respond-to('md-1') {
+        width: 85%;
+        padding: 3rem;
+    }
+
+    @include respond-to('sm-1') {
+        width: 95%;
+        padding: 3rem;
+    }
+}
+
+.form {
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__group-input {
+        display: block;
+        font-family: inherit;
+        width: 90%;
+        border-radius: $border-radius-small;
+        border: none;
+        padding: 1.5rem 2rem;
+        font-size: 1.5rem;
+        color: inherit;
+        background-color: rgba($color-white , .75);
+        border-bottom: 3px solid transparent;
+        transition: $transition-small;
+
+        @include respond-to('md-2') {
+            max-width: 80%;
+        }
+
+        @include respond-to('md-1') {
+            max-width: 95%;
+        }
+
+        &:focus {
+            outline: none;
+            border-bottom: 3px solid $color-primary;
+            box-shadow: $box-shadow-hover;
+
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 1.5rem;
+            color: $color-grey-light;
+        }
+    }
+
+    &__group-label {
+        display: block;
+        font-weight: 700;
+        font-family: inherit;
+        margin-left: 2rem;
+        font-size: 1.2rem;
+        padding-top: .8rem;
+        color: $color-grey-darker;
+        transition: $transition-medium;
+    }
+
+    &__group-input:placeholder-shown + &__group-label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
+
+.radio__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond-to('md-2') {
+        flex-direction: column;
+        gap: 2.4rem;
+        align-items: flex-start;
+    }
+}
+
+.form__radio {
+
+    &-input {
+        display: none;
+    }
+
+    &-label {
+        font-size: $default-font-size;
+        color: $color-text-dark;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+        @include respond-to('md-2') {
+            font-size: 2rem;
+        }
+    }
+
+    &-span {
+        display: inline-block;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: 5px solid $color-green;
+        border-radius: 50%;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 1.6rem;
+            height: 1.6rem;
+            background-color: $color-green;
+            border-radius: 50%;
+            transition: $transition-small;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            opacity: 0;
+        }
+    }
+}
+
+.form {
+    &__radio-input:checked + &__radio-label &__radio-span::after,
+    &__radio-input:focus + &__radio-label &__radio-span::after{
+        opacity: 1;
+    }
+}
+
+.form__button-container {
+
+    @include respond-to('md-1') {
+        margin-top: 4rem;
+    }
+}

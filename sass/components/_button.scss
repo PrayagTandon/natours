@@ -1,0 +1,117 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.btn {
+    position: relative;
+
+    &:link,
+    &:visited {
+        border: none;
+        justify-self: center;
+        display: inline-block;
+        font-size: $default-font-size;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+        text-decoration: none;
+        padding: 1.6rem 4rem;
+        border-radius: 10rem;
+        box-shadow: $box-shadow-light;
+        transition: $transition-small;
+        cursor: pointer;
+    }
+
+    &:hover {
+        transform: translateY(-.5rem);
+        box-shadow: $box-shadow-hover;
+    }
+
+    &:active {
+        transform: translateY(-.2rem);
+        box-shadow: $box-shadow-active;
+    }
+    
+    &--white {
+        color: $color-text-dark;
+        background-color: $color-white;
+    }
+
+    &--green {
+        color: $color-white;
+        background-color: $color-green;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 10rem;
+        z-index: -1;
+        transition: $transition-medium;
+    }
+    &--white::after {
+        background-color: $color-white;
+    }
+
+    &--green::after {
+        background-color: $color-green;
+    }
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
+
+    &--text {
+        display: inline-block;
+        font-size: $default-font-size;
+        text-decoration: none;
+        color: $color-green;
+        padding: 0px 4px 3px 4px;
+        border-bottom: 1px solid $color-green;
+        transition: $transition-small;
+
+        &:hover {
+            transform: translateY(-.5rem);
+            background-color: $color-green;
+            color: $color-white;
+            box-shadow: $box-shadow-hover;
+        }
+
+        &:active {
+            transform: translateY(-.2rem);
+            box-shadow: $box-shadow-active;
+        }
+    }
+
+    &--form {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        border: none;
+        font-size: 1.5rem;
+        border-radius: 10rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: $box-shadow-light;
+        transition: $transition-small;
+    }
+
+    &--submit {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+
+        span {
+            display: inline-block;
+            margin-top: -.3rem;
+        }
+    }
+}

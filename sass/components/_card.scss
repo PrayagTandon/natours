@@ -1,0 +1,232 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.card {
+    position: relative;
+    height: 52rem;
+    -webkit-perspective: 50rem;
+    perspective: 50rem;
+
+    @include respond-to('md-1') {
+        height: auto;
+    }
+
+    &__side {
+        height: 52rem;
+        font-size: $default-font-size;
+        border-radius: $border-radius-small;
+        box-shadow: $box-shadow-light;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transition: $transition-large;
+        overflow: hidden;
+
+        @include respond-to('md-1') {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+        }
+
+        &--front {
+            background-color: $color-white;
+
+            @include respond-to('md-1') {
+                height: 100%;
+            }
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &--1 {
+                background-image: linear-gradient(to right bottom , 
+                                                  rgba($color-secondary-light , .8) , 
+                                                  rgba($color-secondary-dark , .8));
+
+                @include respond-to('md-1') {
+                    background-image: linear-gradient(to right bottom,
+                                rgba($color-secondary-light , 1),
+                                rgba($color-secondary-dark , 1));
+                }            
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom,
+                            rgba($color-primary-light , .8),
+                            rgba($color-primary-dark , .8));
+
+                @include respond-to('md-1') {
+                    background-image: linear-gradient(to right bottom,
+                                rgba($color-primary-light , 1),
+                                rgba($color-primary-dark , 1));
+                }            
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom,
+                            rgba($color-tertiary-light , .8),
+                            rgba($color-tertiary-dark , .8));
+
+                @include respond-to('md-1') {
+                    background-image: linear-gradient(to right bottom,
+                                rgba($color-tertiary-light , 1),
+                                rgba($color-tertiary-dark , 1));
+                }            
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+
+        @include respond-to('md-1') {
+            transform: rotateY(0deg);
+        }
+    }
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    }
+
+    &__picture {
+        height: 23rem;
+        background-size: cover;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0 , 100% 0 , 100% 85% , 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom , rgba($color-secondary-light , 1) , rgba($color-secondary-dark , 1)) ,url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light , 1), rgba($color-primary-dark , 1)), url(../img/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light , 1), rgba($color-tertiary-dark , 1)), url(../img/nat-7.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        text-transform: uppercase;
+        color: $color-white;
+        font-weight: 300;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+        text-align: right;
+
+        &-span {
+            padding: 1rem 1.5rem;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+
+            &--1 {
+                background-image: linear-gradient(to right bottom , rgba($color-secondary-light, .85) , rgba($color-secondary-dark , .85));
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark , .85));
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark , .85));
+            }
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        @include respond-to('lg') {
+            padding: 1.4rem;
+        }
+
+        @include respond-to('md-1') {
+            margin-bottom: 3.2rem;
+        }
+
+        ul {    
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            @include respond-to('lg') {
+                width: 90%;
+            }
+        }
+
+        li {
+            font-size: 1.5rem;
+            color: $color-grey-light;
+            text-align: center;
+            padding: 1rem;
+            &:not(:last-child) {
+                border-bottom: 1px solid $background-grey;
+            }
+        }
+    }
+
+    &__cta {
+        height: 100%;
+        @include flex-container(column , center , center , 8rem , 0rem);
+
+        @include respond-to('md-1') {
+            position: relative;
+            top: 0%;
+            left: 0;
+            transform: translate(0);
+            padding: 7rem 4rem 4rem 4rem;
+            row-gap: 1.8rem;
+        }
+    }
+
+    &__price{
+
+        &-box{
+            width: 90%;
+            text-align: center;
+            color: $color-white;
+        }
+
+        &--only {
+            font-size: $default-font-size;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+
+            @include respond-to('md-1') {
+                font-size: 1.4rem;
+            }
+        }
+
+        &--value {
+            font-size: 6rem;
+            font-weight: 100;
+
+            @include respond-to('md-1') {
+                font-size: 3rem;
+            }
+            
+        }
+    }
+}
+
+@media only screen and (max-width: 34em) //,
+//  only screen and (hover: none) 
+{
+    .card__side--back {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        margin-top: -5.5rem;
+    }
+
+
+ }
