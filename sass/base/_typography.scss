@@ -62,7 +62,7 @@
     background-color: transparent;
     // TO MAKE THE NICE GRADIENT HEADLINE
     display: inline-block;
-    background-image: linear-gradient(to right , rgba($color-primary-light, .8) , rgba($color-primary-dark , .8));
+    background-image: linear-gradient(to right, rgba($color-primary-light, .8), rgba($color-primary-dark , .8));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

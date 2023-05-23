@@ -29,7 +29,7 @@
         transform: translateY(-.2rem);
         box-shadow: $box-shadow-active;
     }
-    
+
     &--white {
         color: $color-text-dark;
         background-color: $color-white;
@@ -52,6 +52,7 @@
         z-index: -1;
         transition: $transition-medium;
     }
+
     &--white::after {
         background-color: $color-white;
     }
